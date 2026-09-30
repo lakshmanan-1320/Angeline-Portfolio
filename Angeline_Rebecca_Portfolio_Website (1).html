@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angeline Rebecca — HR Business Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E2A22;
+    --ink-soft:#2C3A30;
+    --manila:#DDD0A8;
+    --manila-deep:#C9B98A;
+    --paper:#F4EEDD;
+    --paper-light:#FAF6EA;
+    --card:#FBF8EF;
+    --stamp-red:#A5382C;
+    --stamp-teal:#3E6259;
+    --text:#2A2620;
+    --text-soft:#615A48;
+    --line:#C7B98D;
+    --line-soft:#DAD0AE;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .serif{font-family:'Fraunces',serif;}
+
+  ::selection{background:var(--manila-deep);}
+
+  a{color:inherit;}
+
+  /* ===== Folder tab nav ===== */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--ink);
+    display:flex;
+    justify-content:center;
+    gap:0;
+    padding:0 16px;
+    overflow-x:auto;
+  }
+  nav a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#C9C2AC;
+    text-decoration:none;
+    padding:16px 18px 13px;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  nav a:hover, nav a.active{
+    color:var(--paper-light);
+    border-bottom-color:var(--stamp-red);
+  }
+
+  /* ===== Hero: folder cover ===== */
+  header.hero{
+    background:
+      repeating-linear-gradient(180deg, transparent 0 39px, rgba(0,0,0,0.025) 39px 40px),
+      var(--manila);
+    padding:64px 24px 56px;
+    border-bottom:6px solid var(--ink);
+    position:relative;
+  }
+  .hero-inner{
+    max-width:920px;
+    margin:0 auto;
+    position:relative;
+  }
+  .tab-label{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper-light);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    padding:7px 16px;
+    border-radius:0 0 6px 6px;
+    margin-bottom:28px;
+  }
+  .field-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 14px;
+    align-items:baseline;
+    margin-bottom:6px;
+  }
+  .field-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-soft);
+  }
+  h1.name{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(38px,7vw,64px);
+    line-height:1.02;
+    margin:2px 0 10px;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .role-line{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:20px;
+    color:var(--stamp-teal);
+    margin-bottom:22px;
+    border-bottom:1px dashed var(--line);
+    padding-bottom:16px;
+    max-width:640px;
+  }
+  .contact-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px 26px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .contact-strip a{text-decoration:none;border-bottom:1px solid var(--line);}
+  .contact-strip a:hover{border-color:var(--stamp-red); color:var(--stamp-red);}
+
+  .stamp{
+    position:absolute;
+    top:8px;
+    right:8px;
+    width:118px;
+    height:118px;
+    border:3px solid var(--stamp-red);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(11deg);
+    mix-blend-mode:multiply;
+    opacity:0.88;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid var(--stamp-red);
+    border-radius:50%;
+  }
+  .stamp-text{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--stamp-red);
+    text-align:center;
+    line-height:1.35;
+    text-transform:uppercase;
+  }
+
+  /* ===== Sections ===== */
+  main{max-width:920px;margin:0 auto;padding:0 24px;}
+  section{padding:56px 0;border-bottom:1px solid var(--line-soft);}
+  section:last-of-type{border-bottom:none;}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:26px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--stamp-red);
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:3px 8px;
+    border-radius:3px;
+  }
+  h2.section-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:26px;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .summary-text{
+    font-size:16px;
+    line-height:1.75;
+    color:var(--text);
+    max-width:760px;
+  }
+  .summary-text strong{color:var(--ink);font-weight:600;}
+
+  .quote-line{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--stamp-teal);
+    border-left:3px solid var(--stamp-teal);
+    padding-left:16px;
+    margin-top:22px;
+    max-width:640px;
+  }
+
+  /* ===== Case files (portfolio) ===== */
+  .case-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media(max-width:720px){.case-grid{grid-template-columns:1fr;}}
+
+  .case-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:22px 22px 20px;
+    position:relative;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .case-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 22px rgba(30,42,34,0.12);
+  }
+  .case-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:10px;
+  }
+  .case-file-no{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--text-soft);
+    text-transform:uppercase;
+  }
+  .case-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--stamp-teal);
+    border:1px solid var(--stamp-teal);
+    padding:2px 8px;
+    border-radius:20px;
+  }
+  .case-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:18.5px;
+    color:var(--ink);
+    margin:0 0 12px;
+    line-height:1.25;
+  }
+  .case-field{margin-bottom:9px;}
+  .case-field .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--stamp-red);
+    display:block;
+    margin-bottom:2px;
+  }
+  .case-field .v{
+    font-size:13.5px;
+    line-height:1.55;
+    color:var(--text);
+  }
+  .case-result{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+    font-size:13px;
+    color:var(--stamp-teal);
+    font-weight:500;
+  }
+
+  /* ===== Experience timeline ===== */
+  .timeline{border-left:2px solid var(--line);padding-left:26px;margin-left:6px;}
+  .tl-item{position:relative;margin-bottom:30px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-32px;
+    top:5px;
+    width:11px;
+    height:11px;
+    background:var(--paper-light);
+    border:2px solid var(--stamp-red);
+    border-radius:50%;
+  }
+  .tl-head{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:6px 16px;
+    margin-bottom:2px;
+  }
+  .tl-role{font-family:'Fraunces',serif;font-weight:600;font-size:17.5px;color:var(--ink);}
+  .tl-dates{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-soft);}
+  .tl-org{font-size:13px;font-style:italic;color:var(--stamp-teal);margin-bottom:10px;}
+  .tl-item ul{margin:0;padding-left:18px;}
+  .tl-item li{font-size:14px;line-height:1.65;color:var(--text);margin-bottom:5px;}
+
+  /* ===== Skills ===== */
+  .skills-group{margin-bottom:20px;}
+  .skills-group:last-child{margin-bottom:0;}
+  .skills-group .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--stamp-red);
+    display:block;
+    margin-bottom:10px;
+  }
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    padding:6px 12px;
+    border-radius:3px;
+  }
+
+  /* ===== Achievements stamps ===== */
+  .stamp-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:22px;
+    margin-top:8px;
+  }
+  .stamp-card{text-align:center;padding:14px 8px;}
+  .stamp-badge{
+    width:104px;
+    height:104px;
+    margin:0 auto 12px;
+    border:2.5px solid var(--stamp-teal);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    mix-blend-mode:multiply;
+  }
+  .stamp-badge::before{
+    content:"";
+    position:absolute;inset:6px;
+    border:1px dashed var(--stamp-teal);
+    border-radius:50%;
+  }
+  .stamp-badge span{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:12px;
+    color:var(--stamp-teal);
+    padding:0 10px;
+    line-height:1.3;
+  }
+  .stamp-card p{
+    font-size:13px;
+    color:var(--text-soft);
+    line-height:1.55;
+    max-width:220px;
+    margin:0 auto;
+  }
+
+  /* ===== Education ===== */
+  .edu-item{margin-bottom:16px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;}
+  .edu-degree{font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--ink);}
+  .edu-dates{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-soft);}
+  .edu-school{font-size:13px;font-style:italic;color:var(--stamp-teal);}
+
+  /* ===== Footer / contact ===== */
+  footer{
+    background:var(--ink);
+    color:var(--paper-light);
+    padding:56px 24px 40px;
+  }
+  .footer-inner{max-width:920px;margin:0 auto;}
+  footer .tab-label{background:var(--stamp-red);}
+  footer h2.section-title{color:var(--paper-light);}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:30px;
+    margin-top:22px;
+  }
+  @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}}
+  footer p{font-size:14.5px;line-height:1.7;color:#C9C2AC;max-width:440px;}
+  .footer-contact-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    margin-bottom:14px;
+    padding-bottom:14px;
+    border-bottom:1px solid #3A4A3D;
+  }
+  .footer-contact-row .k{color:#8C8468;text-transform:uppercase;letter-spacing:0.08em;font-size:11px;min-width:78px;}
+  .footer-contact-row a{color:var(--paper-light);text-decoration:none;}
+  .footer-contact-row a:hover{color:var(--stamp-red);}
+  .foot-note{
+    margin-top:34px;
+    padding-top:18px;
+    border-top:1px solid #3A4A3D;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#7C755C;
+    letter-spacing:0.04em;
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <a href="#summary">Summary</a>
+  <a href="#casefiles">Case files</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="tab-label">Personnel File — Active</span>
+    <div class="stamp"><span class="stamp-text">4+ Years<br>Verified<br>Experience</span></div>
+    <div class="field-row"><span class="field-label">Name</span></div>
+    <h1 class="name">Angeline Rebecca</h1>
+    <div class="role-line">HR Business Partner — People &amp; Culture, Talent Management, Employee Relations</div>
+    <div class="contact-strip">
+      <span>Coimbatore, Tamil Nadu, India</span>
+      <a href="tel:+918438361050">+91 84383 61050</a>
+      <a href="mailto:angelsweety97@gmail.com">angelsweety97@gmail.com</a>
+      <a href="#" onclick="return false;">LinkedIn ↗</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="summary">
+    <div class="section-head reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Summary</h2>
+    </div>
+    <p class="summary-text reveal">
+      HR professional with <strong>4+ years</strong> across employee lifecycle management, HR operations, employee
+      engagement, and learning &amp; development. Independently owned HR delivery for a <strong>250+ employee</strong>
+      business unit as the sole point of contact — advising leadership on workforce planning, performance,
+      retention, and compliance. Builds the systems behind good HR: onboarding frameworks, knowledge bases,
+      engagement calendars, and MIS reporting that leadership actually uses.
+    </p>
+    <p class="quote-line reveal">"The file stays open until every employee's experience is accounted for."</p>
+  </section>
+
+  <section id="casefiles">
+    <div class="section-head reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Case files — selected work</h2>
+    </div>
+    <div class="case-grid">
+
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-file-no">File No. 001</span>
+          <span class="case-tag">HR Partnering</span>
+        </div>
+        <h3 class="case-title">Standalone HR ownership for a 250+ employee unit</h3>
+        <div class="case-field">
+          <span class="k">Situation</span>
+          <span class="v">Trivandrum business unit had no dedicated on-ground HR partner for day-to-day people operations.</span>
+        </div>
+        <div class="case-field">
+          <span class="k">Action</span>
+          <span class="v">Became sole HR point of contact — owned onboarding, confirmations, BGV, apprenticeship compliance, engagement, and exits end-to-end.</span>
+        </div>
+        <div class="case-result">Result: Zero compliance gaps across BGV and Apprenticeship management, sustained through full tenure.</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-file-no">File No. 002</span>
+          <span class="case-tag">Engagement</span>
+        </div>
+        <h3 class="case-title">Quarterly Rewards &amp; Recognition program, built from scratch</h3>
+        <div class="case-field">
+          <span class="k">Situation</span>
+          <span class="v">No structured program existed to recognize high performers or reinforce culture consistently.</span>
+        </div>
+        <div class="case-field">
+          <span class="k">Action</span>
+          <span class="v">Designed and ran the R&amp;R program end-to-end: award framework, nomination and jury process, budget, and vendor coordination.</span>
+        </div>
+        <div class="case-result">Result: Program now runs every quarter, driving strong employee appreciation and engagement scores.</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-file-no">File No. 003</span>
+          <span class="case-tag">Knowledge Ops</span>
+        </div>
+        <h3 class="case-title">Centralized HR knowledge base and onboarding library</h3>
+        <div class="case-field">
+          <span class="k">Situation</span>
+          <span class="v">Onboarding materials and policy knowledge were scattered, creating an inconsistent new-hire experience.</span>
+        </div>
+        <div class="case-field">
+          <span class="k">Action</span>
+          <span class="v">Built and maintained a Document 360 knowledge base covering onboarding guides, HR FAQs, and policy documentation.</span>
+        </div>
+        <div class="case-result">Result: A consistent, self-serve onboarding journey with routine quality checks for accuracy.</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-file-no">File No. 004</span>
+          <span class="case-tag">Retention</span>
+        </div>
+        <h3 class="case-title">Exit interview program feeding a retention strategy</h3>
+        <div class="case-field">
+          <span class="k">Situation</span>
+          <span class="v">Leadership needed visibility into why people were leaving and what could be done about it.</span>
+        </div>
+        <div class="case-field">
+          <span class="k">Action</span>
+          <span class="v">Owned end-to-end exit management and conducted structured exit interviews, analyzing feedback for patterns.</span>
+        </div>
+        <div class="case-result">Result: Identified attrition trends and retention opportunities that shaped engagement planning.</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-file-no">File No. 005</span>
+          <span class="case-tag">Performance</span>
+        </div>
+        <h3 class="case-title">Governance for a full performance review cycle</h3>
+        <div class="case-field">
+          <span class="k">Situation</span>
+          <span class="v">Performance review execution needed consistent tracking across goal-setting, reviews, and outcomes.</span>
+        </div>
+        <div class="case-field">
+          <span class="k">Action</span>
+          <span class="v">Coordinated the full cycle — goal-tracking, review consolidation, and PIP and promotion documentation.</span>
+        </div>
+        <div class="case-result">Result: A well-documented cycle supporting fair, consistent promotion and PIP decisions.</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-file-no">File No. 006</span>
+          <span class="case-tag">Talent Acquisition</span>
+        </div>
+        <h3 class="case-title">High-volume engineering hiring drive</h3>
+        <div class="case-field">
+          <span class="k">Situation</span>
+          <span class="v">Business required rapid scaling of engineering headcount within a tight hiring window.</span>
+        </div>
+        <div class="case-field">
+          <span class="k">Action</span>
+          <span class="v">Ran full-cycle recruitment — sourcing, screening, interview coordination, and offer negotiation.</span>
+        </div>
+        <div class="case-result">Result: 100+ joiners delivered in a single month; nominated for the Cheers Award for reducing offer decline ratio.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">People &amp; Culture Specialist</span>
+          <span class="tl-dates">Oct 2025 – Jun 2026</span>
+        </div>
+        <div class="tl-org">Kovai.co, Coimbatore, Tamil Nadu</div>
+        <ul>
+          <li>Sole HR professional independently managing ~250 employees for the Trivandrum business unit.</li>
+          <li>Prepared and presented Monthly and Quarterly HR Review dashboards to leadership.</li>
+          <li>Owned Quarterly Rewards &amp; Recognition program and year-round engagement calendar.</li>
+          <li>Managed vendor partnerships across wellness, engagement, and onboarding.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">HR Business Partner</span>
+          <span class="tl-dates">Jan 2024 – Jan 2025</span>
+        </div>
+        <div class="tl-org">Klaus IT Solutions, Trivandrum, Kerala</div>
+        <ul>
+          <li>Managed the end-to-end employee lifecycle independently, partnering directly with business stakeholders.</li>
+          <li>Coordinated performance review cycles, PIP, and promotion documentation.</li>
+          <li>Resolved complex employee relations issues while ensuring statutory and policy compliance.</li>
+          <li>Planned town halls, team events, and CSR / employee volunteering drives.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Talent Acquisition Specialist</span>
+          <span class="tl-dates">May 2022 – Jan 2024</span>
+        </div>
+        <div class="tl-org">Klaus IT Solutions, Bangalore, Karnataka</div>
+        <ul>
+          <li>Executed full-cycle recruitment across engineering roles.</li>
+          <li>Delivered 100+ joiners in a single month; nominated for the Cheers Award.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">HR Recruiter</span>
+          <span class="tl-dates">Jan 2022 – May 2022</span>
+        </div>
+        <div class="tl-org">Day N Day, Coimbatore, Tamil Nadu</div>
+        <ul>
+          <li>Coordinated recruitment operations across vendors, hiring partners, and internal stakeholders.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Skills &amp; tools</h2>
+    </div>
+    <div class="skills-group reveal">
+      <span class="k">Core competencies</span>
+      <div class="chip-row">
+        <span class="chip">Employee Lifecycle Mgmt</span>
+        <span class="chip">Talent Management</span>
+        <span class="chip">Employee Relations</span>
+        <span class="chip">Workforce Planning</span>
+        <span class="chip">Engagement &amp; Culture</span>
+        <span class="chip">Rewards &amp; Recognition</span>
+        <span class="chip">HR Shared Services</span>
+        <span class="chip">Compliance &amp; Policy</span>
+        <span class="chip">MIS &amp; Reporting</span>
+      </div>
+    </div>
+    <div class="skills-group reveal">
+      <span class="k">HRMS / ATS</span>
+      <div class="chip-row">
+        <span class="chip">Workday</span>
+        <span class="chip">Keka</span>
+        <span class="chip">HR Stop</span>
+        <span class="chip">First Step</span>
+        <span class="chip">Naukri</span>
+        <span class="chip">LinkedIn Recruiter</span>
+        <span class="chip">SmartRecruiters</span>
+      </div>
+    </div>
+    <div class="skills-group reveal">
+      <span class="k">Reporting &amp; content</span>
+      <div class="chip-row">
+        <span class="chip">Excel — Pivot Tables &amp; MIS</span>
+        <span class="chip">PowerPoint</span>
+        <span class="chip">Google Workspace</span>
+        <span class="chip">Document 360</span>
+        <span class="chip">Employee Surveys</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="section-head reveal">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Verified achievements</h2>
+    </div>
+    <div class="stamp-grid">
+      <div class="stamp-card reveal">
+        <div class="stamp-badge"><span>ZERO<br>GAPS</span></div>
+        <p>Zero compliance gaps in BGV and Apprenticeship Management across all tenures.</p>
+      </div>
+      <div class="stamp-card reveal">
+        <div class="stamp-badge"><span>100+<br>JOINERS</span></div>
+        <p>Delivered 100+ joiners in a single month, recognized by TA leadership.</p>
+      </div>
+      <div class="stamp-card reveal">
+        <div class="stamp-badge"><span>CHEERS<br>AWARD</span></div>
+        <p>Nominated for reducing offer decline ratio through candidate experience improvements.</p>
+      </div>
+      <div class="stamp-card reveal">
+        <div class="stamp-badge"><span>250+<br>OWNED</span></div>
+        <p>Independently managed HR for a 250-employee business unit as sole HR contact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head reveal">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Education &amp; languages</h2>
+    </div>
+    <div class="edu-item reveal">
+      <div class="edu-top"><span class="edu-degree">MBA — Human Resources</span><span class="edu-dates">2026 – 2028</span></div>
+      <div class="edu-school">Karunya University, Coimbatore</div>
+    </div>
+    <div class="edu-item reveal">
+      <div class="edu-top"><span class="edu-degree">MA — English Literature</span><span class="edu-dates">2018 – 2020</span></div>
+      <div class="edu-school">PSG College of Arts and Science, Coimbatore</div>
+    </div>
+    <div class="edu-item reveal">
+      <div class="edu-top"><span class="edu-degree">BA — English Literature</span><span class="edu-dates">2015 – 2018</span></div>
+      <div class="edu-school">PSGR Krishnammal College for Women, Coimbatore</div>
+    </div>
+    <div class="skills-group reveal" style="margin-top:22px;">
+      <span class="k">Languages</span>
+      <div class="chip-row">
+        <span class="chip">English — Fluent</span>
+        <span class="chip">Tamil — Fluent</span>
+        <span class="chip">Hindi — Proficient</span>
+        <span class="chip">Malayalam — Conversational</span>
+        <span class="chip">French — Basic</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <span class="tab-label">Request for contact</span>
+    <h2 class="section-title">Let's talk</h2>
+    <div class="footer-grid">
+      <p>Open to HR Business Partner and People &amp; Culture roles where strategic advisory meets hands-on
+        ownership. Reach out directly — the file's always open for a conversation.</p>
+      <div>
+        <div class="footer-contact-row"><span class="k">Email</span><a href="mailto:angelsweety97@gmail.com">angelsweety97@gmail.com</a></div>
+        <div class="footer-contact-row"><span class="k">Phone</span><a href="tel:+918438361050">+91 84383 61050</a></div>
+        <div class="footer-contact-row"><span class="k">Location</span><span>Coimbatore, Tamil Nadu, India</span></div>
+        <div class="footer-contact-row" style="border-bottom:none;"><span class="k">LinkedIn</span><a href="#" onclick="return false;">View profile ↗</a></div>
+      </div>
+    </div>
+    <div class="foot-note">Personnel file maintained by Angeline Rebecca — last updated Jul 2026</div>
+  </div>
+</footer>
+
+<script>
+  const links = document.querySelectorAll('#topnav a');
+  const sections = document.querySelectorAll('main section, footer');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom > 120) current = s.id;
+    });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

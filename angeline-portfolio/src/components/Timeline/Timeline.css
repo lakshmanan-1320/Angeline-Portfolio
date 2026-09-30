@@ -1,0 +1,111 @@
+.exp{background:var(--surface);}
+
+.exp-wrap{position:relative;}
+
+.exp-rail-track{
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:2px;
+  transform:translateX(-50%);
+  background:var(--border);
+}
+.exp-rail{
+  width:100%;
+  height:100%;
+  background:var(--gradient-brand);
+  transform:scaleY(0);
+}
+@media(max-width:860px){.exp-rail-track{left:24px;}}
+
+.exp-row{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 60px 1fr;
+  align-items:center;
+  margin-bottom:34px;
+}
+.exp-row:last-child{margin-bottom:0;}
+.exp-row.left .exp-card{grid-column:1;}
+.exp-row.left .exp-spacer{grid-column:3;}
+.exp-row.right .exp-card{grid-column:3;}
+.exp-row.right .exp-spacer{grid-column:1;}
+.exp-node{
+  grid-column:2;
+  justify-self:center;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:var(--surface);
+  border:3px solid var(--red);
+  z-index:1;
+}
+
+@media(max-width:860px){
+  .exp-row{grid-template-columns:44px 1fr;}
+  .exp-row.left .exp-card,
+  .exp-row.right .exp-card{grid-column:2;}
+  .exp-node{grid-column:1;}
+  .exp-spacer{display:none;}
+}
+
+.exp-card{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:28px;
+  transition:box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+}
+.exp-card:hover{
+  box-shadow:var(--shadow-md);
+  transform:translateY(-4px);
+  border-color:var(--red);
+}
+.exp-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+.exp-card-icon{
+  width:34px;height:34px;
+  flex-shrink:0;
+  border-radius:10px;
+  background:var(--gradient-brand);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;
+}
+.exp-date{
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--muted);
+}
+.exp-card h3{
+  font-size:20px;
+  font-weight:700;
+  color:var(--heading);
+  margin-bottom:6px;
+}
+.exp-org{
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--red);
+  margin-bottom:16px;
+}
+.exp-card ul{display:flex;flex-direction:column;gap:9px;}
+.exp-card li{
+  position:relative;
+  padding-left:16px;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--para);
+}
+.exp-card li::before{
+  content:"";
+  position:absolute;
+  left:0;top:8px;
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--purple);
+}

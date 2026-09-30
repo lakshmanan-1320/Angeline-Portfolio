@@ -1,0 +1,70 @@
+.resume-page{
+  background:var(--bg);
+  min-height:100vh;
+  padding:32px 20px 80px;
+}
+.resume-toolbar{
+  max-width:800px;
+  margin:0 auto 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.resume-back{
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--heading);
+}
+.resume-sheet{
+  max-width:800px;
+  margin:0 auto;
+  background:var(--surface);
+  padding:56px 60px;
+  box-shadow:var(--shadow-lg);
+  border-radius:var(--radius-md);
+}
+.r-header{border-bottom:2px solid var(--dark);padding-bottom:18px;margin-bottom:28px;}
+.r-header h1{
+  font-size:32px;
+  font-weight:700;
+  color:var(--heading);
+  letter-spacing:-.02em;
+}
+.r-role{color:var(--red);font-weight:500;margin:6px 0 14px;font-size:14.5px;}
+.r-contact{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);}
+
+.r-section{padding:0;margin-bottom:26px;}
+.r-section h2{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--red);
+  border-bottom:1px solid var(--border);
+  padding-bottom:6px;
+  margin-bottom:14px;
+}
+.r-section p{font-size:13.5px;line-height:1.65;color:var(--para);}
+
+.r-exp{margin-bottom:16px;}
+.r-exp-top{display:flex;justify-content:space-between;font-size:14.5px;font-weight:600;color:var(--heading);}
+.r-exp-org{color:var(--red);font-size:12.5px;font-weight:500;margin:2px 0 8px;}
+.r-exp ul{padding-left:18px;list-style:disc;}
+.r-exp li{font-size:13px;line-height:1.6;margin-bottom:4px;color:var(--para);}
+
+.r-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;}
+.r-inline{margin-bottom:16px;}
+.r-edu{margin-bottom:12px;font-size:13px;}
+.r-edu strong{display:block;font-size:14px;color:var(--heading);}
+.r-edu span{font-size:11px;color:var(--muted);}
+
+@media(max-width:640px){
+  .resume-sheet{padding:32px 24px;}
+  .r-grid{grid-template-columns:1fr;}
+}
+
+@media print{
+  .no-print{display:none !important;}
+  .resume-page{background:#fff;padding:0;}
+  .resume-sheet{box-shadow:none;padding:0;max-width:100%;}
+}

@@ -1,0 +1,50 @@
+.funnel{background:var(--bg);}
+
+.funnel-shape{
+  max-width:640px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+
+.funnel-row{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:26px;
+}
+@media(max-width:640px){
+  .funnel-row{flex-direction:column;gap:10px;}
+  .funnel-trap{flex:0 0 auto;width:100%;height:56px;}
+}
+
+.funnel-trap{
+  position:relative;
+  flex:0 0 260px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:var(--gradient-brand);
+  color:#fff;
+  transition:transform .35s ease;
+}
+.funnel-row:nth-child(even) .funnel-trap{background:var(--gradient-cool);}
+.funnel-trap:hover{transform:scale(1.03);}
+.funnel-index{
+  font-size:11.5px;
+  font-weight:700;
+  opacity:.75;
+}
+.funnel-label{font-size:15px;font-weight:600;}
+
+.funnel-text{
+  flex:1;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--para);
+}
+@media(max-width:640px){.funnel-text{text-align:center;}}

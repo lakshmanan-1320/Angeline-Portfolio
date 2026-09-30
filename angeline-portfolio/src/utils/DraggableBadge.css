@@ -1,0 +1,60 @@
+.badge-cell{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.badge-lanyard{
+  position:relative;
+  height:26px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  flex-shrink:0;
+  pointer-events:none;
+}
+.badge-strap{
+  position:absolute;
+  top:0;
+  width:13px;
+  height:26px;
+  border-radius:4px 4px 0 0;
+  background:repeating-linear-gradient(127deg, var(--red) 0 6px, var(--purple) 6px 12px);
+  box-shadow:0 2px 5px rgba(15,23,42,.1);
+}
+.badge-clip{
+  position:absolute;
+  bottom:-4px;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  border:2.5px solid #CBD5E1;
+  background:var(--surface);
+  box-shadow:0 1px 2px rgba(15,23,42,.12);
+}
+
+.badge-card{
+  position:relative;
+  flex:1;
+  width:100%;
+  cursor:grab;
+  touch-action:none;
+  will-change:transform;
+}
+.badge-card:active{cursor:grabbing;}
+.badge-card.is-dragging{z-index:5;}
+
+.badge-punch{
+  position:absolute;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  box-shadow:inset 0 2px 3px rgba(15,23,42,.18);
+  z-index:2;
+  pointer-events:none;
+}

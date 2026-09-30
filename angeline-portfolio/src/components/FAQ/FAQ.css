@@ -1,0 +1,49 @@
+.faq2{background:var(--surface);}
+
+.faq2-list{display:flex;flex-direction:column;gap:14px;}
+.faq2-item{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  transition:border-color .3s ease, box-shadow .3s ease;
+}
+.faq2-item.is-open{border-color:transparent;box-shadow:var(--shadow-glow);}
+
+.faq2-q{
+  width:100%;
+  background:none;
+  border:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px 26px;
+  text-align:left;
+  font-size:16px;
+  font-weight:600;
+  color:var(--heading);
+}
+.faq2-icon{
+  flex-shrink:0;
+  width:32px;height:32px;
+  border-radius:10px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--red);
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+}
+.faq2-item.is-open .faq2-icon{
+  background:var(--gradient-brand);
+  color:#fff;
+  transform:rotate(135deg);
+}
+
+.faq2-a-wrap{overflow:hidden;}
+.faq2-a{
+  padding:0 26px 24px;
+  font-size:14.5px;
+  line-height:1.75;
+  color:var(--para);
+}
